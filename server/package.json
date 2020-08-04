@@ -10,6 +10,8 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "knex": "^0.21.2",
+    "sqlite3": "^5.0.0",
     "ts-node-dev": "^1.0.0-pre.56"
   }
 }
