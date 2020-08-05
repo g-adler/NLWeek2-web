@@ -5,32 +5,19 @@ import { Link } from 'react-router-dom';
 import './styles.css'
 import PageHeader from '../../components/PageHeader';
 import TeacherItem from '../../components/TeacherItem'
+import Input from '../../components/Input';
 
 function TeacherList() {
     return(
         <div id="page-teacher-list" className="container">
            <PageHeader title="Estes são os proffys disponiveis" >
             <form id="search-teachers">
-                <div className="input-block">
-                    <label htmlFor="subject">
-                        Materia
-                    </label>
-                    <input type="text" id="subject"/>
-                </div>
+                
+                <Input name='subject' label='Matéria' />
 
-                <div className="input-block">
-                    <label htmlFor="week-day">
-                        Dia da semana
-                    </label>
-                    <input type="text" id="subject"/>
-                </div>
+                <Input name='week_day' label='Dia da semana' />
 
-                <div className="input-block">
-                    <label htmlFor="time">
-                        Hora
-                    </label>
-                    <input type="text" id="subject"/>
-                </div>
+                <Input name='time' type='time' label='Hora' />
 
             </form>
            </PageHeader> 
