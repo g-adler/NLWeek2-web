@@ -29,9 +29,10 @@
       bottom: -44px;
     }
   
-    #search-teachers .input-block + .input-block {
-      font-size: 0;
-    }
+    #search-teachers .input-block + .input-block,
+    #search-teachers .select-block + .select-block {
+      margin-top: 0;
+    }  Vídeo:51:34
   
     #page-teacher-list main {
       padding: 32rem 0;
