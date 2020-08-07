@@ -2,29 +2,49 @@ import React from 'react';
 
 import wppIcon from '../../assets/images/icons/whatsapp.svg';
 import './styles.css';
+import api from '../../services/api';
 
-function TeacherItem(){
+export interface Teacher  {
+  avatar: string
+  bio: string
+  id: number
+  name: string
+  cost: string
+  subject: string
+  whatsapp: string
+}
+
+interface TeacherItemProps{
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+  function createNewConnection(){
+    api.post('connections', {
+      user_id :teacher.id
+    })
+  }
   return(
     <article className='teacher-item'>
       <header>
-        <img src='' alt=''/>
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Nome do infeliz</strong>
-          <span>Matéria</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor rhoncus dolor purus non enim praesent elementum. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Purus semper eget duis at tellus. Viverra orci sagittis eu volutpat odio facilisis mauris. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Vulputate sapien nec sagittis aliquam malesuada. Sit amet venenatis urna cursus. <br/> Arcu ac tortor dignissim convallis aenean et. Viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat.
+      {teacher.bio}
       </p>
         <footer>
           <p>
             Preço/Hora
-            <strong> R$850,00</strong>
-            <button type='button'>
-              <img src={wppIcon} alt='WPP'/>
+            <strong>{teacher.cost}</strong>
+            <a target='_blank' onClick={createNewConnection} href={ `https://wa.me/${teacher.whatsapp}`} >
+              <img src={wppIcon} alt='Wpp '/>
               Entrar em contato
-            </button>
+            </a>
           </p>
         </footer>
     </article>
