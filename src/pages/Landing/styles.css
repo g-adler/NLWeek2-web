@@ -106,7 +106,7 @@
   
     .logo-container {
       grid-area: logo;
-      align-self: centrer;
+      align-self: center;
       text-align: left;
       margin: 0;
     }
